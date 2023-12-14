@@ -1,4 +1,3 @@
-from PyQt5.QtGui import QIcon
 from mycanvas import *
 
 class MyWindow(QMainWindow):
@@ -19,6 +18,15 @@ class MyWindow(QMainWindow):
         tb.addAction(addBezier2)
         addRectangle = QAction("Adicionar retangulo", self)
         tb.addAction(addRectangle)
+        generateMesh = QAction("Gerar malha", self)
+        tb.addAction(generateMesh)
+        temperatura = QAction("Temperatura", self)
+        tb.addAction(temperatura)
+        forca = QAction("Forca", self)
+        tb.addAction(forca)
+        export = QAction("Exportar", self)
+        tb.addAction(export)
+
         tb.actionTriggered[QAction].connect(self.tbpressed)
 
 
@@ -30,3 +38,11 @@ class MyWindow(QMainWindow):
             self.m_canvas.setState("Collect", "Bezier2")
         elif _action.text() == "Adicionar retangulo":
             self.m_canvas.setState("Collect", "Rectangle")
+        elif _action.text() == "Gerar malha":
+            self.m_canvas.showDialog()
+        elif _action.text() == "Temperatura":
+            self.m_canvas.set_up_temp()
+        elif _action.text() == "Forca":
+            self.m_canvas.set_up_force()
+        elif _action.text() == "Exportar":
+            self.m_canvas.export()
