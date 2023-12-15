@@ -22,7 +22,7 @@ class MyWindow(QMainWindow):
         tb.addAction(generateMesh)
         temperatura = QAction("Temperatura", self)
         tb.addAction(temperatura)
-        forca = QAction("Forca", self)
+        forca = QAction("Movimento", self)
         tb.addAction(forca)
         export = QAction("Exportar", self)
         tb.addAction(export)
@@ -39,10 +39,10 @@ class MyWindow(QMainWindow):
         elif _action.text() == "Adicionar retangulo":
             self.m_canvas.setState("Collect", "Rectangle")
         elif _action.text() == "Gerar malha":
-            self.m_canvas.showDialog()
+            self.m_canvas.gerarMalha()
         elif _action.text() == "Temperatura":
-            self.m_canvas.set_up_temp()
+            self.m_canvas.temperatura()
         elif _action.text() == "Forca":
-            self.m_canvas.set_up_force()
+            self.m_canvas.movimento()
         elif _action.text() == "Exportar":
-            self.m_canvas.export()
+            self.m_canvas.exportar()

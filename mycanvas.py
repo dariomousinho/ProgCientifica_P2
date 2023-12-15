@@ -253,7 +253,7 @@ class MyCanvas(QtOpenGL.QGLWidget):
 
         return QtCore.QPointF(x, y)
                
-    def showDialog(self):
+    def gerarMalha(self):
         if Hetool.isEmpty():
             print("Nao ha patches")
             return
@@ -307,7 +307,7 @@ class MyCanvas(QtOpenGL.QGLWidget):
         self.update()
         self.repaint()
   
-    def set_up_temp(self):
+    def temperatura(self):
             dialog = InputDialog(title="Defina o calor", labels=["Defina o calor ao redor do Objeto", "Defina a variação de calor"], dialogs=2)
             dialog.exec()
             if dialog.result() == 1:
@@ -318,7 +318,7 @@ class MyCanvas(QtOpenGL.QGLWidget):
                     self._temp = 100.0
                     self._var = 1.2
 
-    def set_up_force(self):
+    def movimento(self):
         dialog = InputDialog(
             title="Defina a força",
             labels=[
@@ -348,7 +348,7 @@ class MyCanvas(QtOpenGL.QGLWidget):
                 return i + 1
         return 0
 
-    def export(self):
+    def exportar(self):
         lower_y = sys.maxsize
         upper_y = -sys.maxsize
         lower_x = sys.maxsize

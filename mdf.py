@@ -65,7 +65,6 @@ plt.ylabel("Y-axis")
 plt.show()
 
 
-# Write the output
 output(matriz.tolist())
 
 
