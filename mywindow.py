@@ -42,7 +42,7 @@ class MyWindow(QMainWindow):
             self.m_canvas.gerarMalha()
         elif _action.text() == "Temperatura":
             self.m_canvas.temperatura()
-        elif _action.text() == "Forca":
+        elif _action.text() == "Movimento":
             self.m_canvas.movimento()
         elif _action.text() == "Exportar":
             self.m_canvas.exportar()

@@ -258,7 +258,7 @@ class MyCanvas(QtOpenGL.QGLWidget):
             print("Nao ha patches")
             return
         default = 1.0
-        dialog = InputDialog(title="Definir grade", labels=["Quanto maior o valor, menor a grade"])
+        dialog = InputDialog(title="Criar malha", labels=["Defina a distância entre as partículas, em pixels"])
         dialog.exec()
         if dialog.result() == 1:
             try:
@@ -308,7 +308,7 @@ class MyCanvas(QtOpenGL.QGLWidget):
         self.repaint()
   
     def temperatura(self):
-            dialog = InputDialog(title="Defina o calor", labels=["Defina o calor ao redor do Objeto", "Defina a variação de calor"], dialogs=2)
+            dialog = InputDialog(title="Temperatura", labels=["Defina o calor ao redor da malha", "Defina a variação do calor"], dialogs=2)
             dialog.exec()
             if dialog.result() == 1:
                 try:
@@ -320,12 +320,12 @@ class MyCanvas(QtOpenGL.QGLWidget):
 
     def movimento(self):
         dialog = InputDialog(
-            title="Defina a força",
+            title="Movimento",
             labels=[
-                "Define a força aplicada",
+                "Define a força",
                 "Quantidade de particulas afetadas de inicio",
-                "Defina a massa do objeto",
-                "Defina a densidade do objeto"
+                "Defina a massa",
+                "Defina a densidade"
             ],
             dialogs=4
         )
