@@ -1,5 +1,5 @@
 import json
-import matplotlib.pyplot as plt  # Assuming Plots in Julia is used for plotting
+import matplotlib.pyplot as plt  
 import numpy as np
 
 def readJSON():
@@ -32,15 +32,13 @@ def outputRes(_res):
         json.dump(dict_result, f, indent=4)
 
 def main():
-    print(".DEM")
-    # Read input file
+    
     N = 600
     h = 0.00004
     ne, x0, y0, conect, F, restrs, mass, kspr = readJSON()
     ndofs = 2 * ne
     raio = 1
 
-    # Reshape and transpose F and restrs
     F = F.T.reshape((ndofs, 1))
     restrs = restrs.T.reshape((ndofs, 1))
 
@@ -65,7 +63,7 @@ def main():
             xj = x0[j] + u[2 * j - 1]
             yj = y0[j] + u[2 * j]
             for index in range(int(conect[j, 0])):
-                k = int(conect[j, index + 1]) - 1  # Adjust for zero-based indexing
+                k = int(conect[j, index + 1]) - 1  
                 xk = x0[k] + u[2 * k - 1]
                 yk = y0[k] + u[2 * k]
                 dX = xj - xk
@@ -82,7 +80,7 @@ def main():
                 fi[2 * j] += kspr * dy
         a = (F - fi) / mass
         v += a * (0.5 * h)
-        res[i] = u[33, 0]  # Ensure extraction of a scalar value
+        res[i] = u[33, 0]  
 
     outputRes(res)
     x = np.arange(1, N + 1)
